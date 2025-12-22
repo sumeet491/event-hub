@@ -1,0 +1,636 @@
+:root {
+  --bg: #020617;
+  --surface: #0f172a;
+  --orange: #ff7a00;
+  --orange-dark: #e86f00;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo span {
+  color: var(--orange);
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.profile-icon {
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.profile-icon:hover {
+  transform: scale(1.2);
+  color: var(--orange);
+}
+
+.nav {
+  display: none;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--orange);
+}
+
+.hero {
+  position: relative;
+  min-height: 90vh;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(2,6,23,0.7);
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.badge {
+  font-size: 30px;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.live {
+  color: var(--orange);
+  font-weight: 600;
+  
+}
+
+.hero h1 {
+  font-size: 35px;
+  line-height: 1.15;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-bottom: 28px;
+  font-size: 15px;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.search input {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.search button {
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  background: var(--orange);
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.search button:hover {
+  background: var(--orange-dark);
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 13px;
+}
+/* ================= TRANSPARENT NAVBAR ================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 16px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: transparent;
+}
+
+/* LOGO */
+.nav-logo {
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.logo-event {
+  color: var(--orange);
+}
+
+.logo-hub {
+  color: #ffffff;
+}
+
+.nav-logo:hover {
+  transform: scale(1.08) rotate(-1deg);
+}
+
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #e5e7eb;
+  font-size: 15px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--orange);
+}
+
+/* Underline animation */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--orange);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* PROFILE */
+.nav-profile img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.nav-profile img:hover {
+  transform: scale(1.15);
+  border-color: var(--orange);
+}
+
+/* cards */
+/* ================= EVENTS SECTION ================= */
+
+.events-section {
+  padding: 80px 60px;
+  background: #020617;
+}
+
+.events-title {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #ffffff;
+}
+
+/* Grid */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Card */
+.event-card {
+  background: #0f172a;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(255, 122, 0, 0.15);
+}
+
+/* Image */
+.event-img {
+  position: relative;
+}
+
+.event-img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Heart */
+.heart {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(0,0,0,0.6);
+  padding: 6px 10px;
+  border-radius: 50%;
+  color: #ff7a00;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.heart:hover {
+  transform: scale(1.2);
+  background: #ff7a00;
+  color: #000;
+}
+
+/* Body */
+.event-body {
+  padding: 20px;
+}
+
+.event-date {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-bottom: 6px;
+}
+
+.event-name {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+
+.event-place {
+  font-size: 14px;
+  color: #cbd5f5;
+  margin-bottom: 16px;
+}
+
+/* Button */
+.book-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #ff7a00;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.book-btn:hover {
+  background: #e86f00;
+  transform: scale(1.03);
+}
+/* heart btn */
+/* Heart like button */
+.heart {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.heart svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: #ff7a00;
+  stroke-width: 2;
+  transition: all 0.25s ease;
+}
+
+/* Liked state */
+.heart.liked {
+  background: #ff7a00;
+}
+
+.heart.liked svg {
+  fill: #000;
+  stroke: #000;
+  transform: scale(1.2);
+}
+/* memories */
+/* ================= MOMENTS CAROUSEL ================= */
+
+.moments-section {
+  padding: 80px 40px;
+  background: linear-gradient(135deg, #020617, #0f172a);
+}
+
+.moments-title {
+  font-size: 34px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.moments-subtitle {
+  text-align: center;
+  color: #9ca3af;
+  margin-bottom: 40px;
+}
+
+/* Horizontal scroll container */
+.moments-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  cursor: grab;
+}
+
+.moments-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card */
+.moment-card {
+  min-width: 220px;
+  height: 320px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  background: #000;
+  transition: transform 0.3s ease;
+}
+
+.moment-card:hover {
+  transform: scale(1.05);
+}
+
+/* Image */
+.moment-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay info */
+.moment-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.moment-info strong {
+  display: block;
+  font-size: 14px;
+}
+
+.moment-info span {
+  font-size: 12px;
+  color: #cbd5f5;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .moments-section {
+    padding: 60px 20px;
+  }
+
+  .moments-title {
+    font-size: 26px;
+  }
+
+  .moment-card {
+    min-width: 180px;
+    height: 260px;
+  }
+}
+/* ================= MOMENTS CLEAN WALL ================= */
+
+.moments-section {
+  padding: 80px 60px;
+  background: linear-gradient(180deg, #020617, #020617);
+}
+
+.moments-title {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.moments-subtitle {
+  text-align: center;
+  color: #9ca3af;
+  margin-bottom: 40px;
+}
+
+/* Horizontal scroll with 2 rows */
+.moments-wrapper {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, 260px);
+  grid-auto-columns: 220px;
+  gap: 20px;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.moments-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card */
+.moment-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+
+.moment-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Image FIX (important) */
+.moment-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay */
+.moment-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.85),
+    rgba(0,0,0,0)
+  );
+}
+
+.moment-overlay strong {
+  display: block;
+  font-size: 14px;
+}
+
+.moment-overlay span {
+  font-size: 12px;
+  color: #cbd5f5;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .moments-section {
+    padding: 60px 20px;
+  }
+
+  .moments-wrapper {
+    grid-template-rows: 240px;
+    grid-auto-columns: 180px;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (min-width: 1024px) {
+
+  .hero-overlay {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+
+  .hero h1 {
+    font-size: 65px;      
+    line-height: 1.05;
+    letter-spacing: -1px;
+  }
+
+
+  .subtitle {
+    font-size: 18px;
+    margin-bottom: 36px;
+  }
+
+
+  .search {
+    flex-direction: row;        
+    max-width: 720px;          
+    margin: 0 auto;
+    gap: 0;                   
+  } 
+
+  .search input {
+    flex: 1;
+    border-radius: 10px 0 0 10px;  
+    font-size: 16px;
+  }
+
+  .search button {
+    border-radius: 0 10px 10px 0;  
+    padding: 0 36px;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+  
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .navbar {
+    padding: 14px 20px;
+  }
+    .events-section {
+    padding: 60px 20px;
+  }
+
+  .events-title {
+    font-size: 26px;
+  }
+}

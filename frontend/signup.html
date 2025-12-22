@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EventHub | Sign Up</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+
+  <!-- Logo -->
+  <div class="logo">Event<span>Hub</span></div>
+
+  <!-- Signup Card -->
+  <div class="signup-card">
+    <h1>Create Account</h1>
+    <p class="subtitle">Join EventHub today</p>
+
+    <!-- Profile Upload -->
+    <div class="profile-upload">
+      <img id="preview" src="/assets/back.jpg" alt="Profile">
+      <label for="profilePic">Upload Profile Photo</label>
+      <input type="file" id="profilePic" accept="image/*">
+    </div>
+
+    <input id="name" type="text" placeholder="Full Name">
+    <input id="username" type="text" placeholder="Username">
+    <input id="email" type="email" placeholder="Email Address">
+    <input id="password" type="password" placeholder="Password">
+
+    <input
+      id="collegeUid"
+      type="number"
+      placeholder="College UID"
+      oninput="this.value = this.value.replace(/[^0-9]/g,'')"
+    >
+
+    <select id="department">
+      <option value="">Select Department</option>
+      <option value="BCA">BCA</option>
+      <option value="MCA">MCA</option>
+      <option value="CSE">CSE</option>
+      <option value="Electronics">Electronics</option>
+      <option value="Mechanical">Mechanical</option>
+    </select>
+
+    <button onclick="signup()">Create Account</button>
+
+    <p class="login-text">
+      Already have an account?
+      <a href="login.html">Login</a>
+    </p>
+  </div>
+
+  <!-- JS -->
+  <script src="js/signup.js"></script>
+</body>
+</html>

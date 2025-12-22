@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: url("/assets/back.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Blur overlay */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.45);
+}
+
+/* Logo */
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 25px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #ff9f1c;
+  z-index: 5;
+}
+
+.logo span {
+  color: #fff;
+}
+
+/* Signup Card */
+.signup-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 430px;
+  padding: 35px;
+  border-radius: 16px;
+  background:
+    linear-gradient(rgba(20,20,20,0.75), rgba(20,20,20,0.75)),
+    url("/assets/back.jpg") center/cover no-repeat;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  color: #fff;
+}
+
+.signup-card h1 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 13px;
+  margin-bottom: 22px;
+  opacity: 0.9;
+}
+
+/* Profile Upload FIX */
+.profile-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 🔥 center horizontally */
+  justify-content: center;
+  margin: 20px 0 24px;   /* 🔧 top-bottom spacing fix */
+  text-align: center;
+}
+
+.profile-upload img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ff9f1c;
+  margin-bottom: 8px;   /* 🔧 space between image & text */
+}
+
+.profile-upload label {
+  font-size: 13px;
+  color: #ff9f1c;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.profile-upload input {
+  display: none;
+}
+
+
+/* Inputs */
+.signup-card input,
+.signup-card select {
+  width: 100%;
+  padding: 11px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 12px;
+  background: #ff9f1c;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff851b;
+}
+
+/* Login text */
+.login-text {
+  margin-top: 16px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.login-text a {
+  color: #ff9f1c;
+  text-decoration: none;
+}
+
+.login-text a:hover {
+  color: #fff;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  body {
+    padding-top: 70px;
+  }
+
+  .signup-card {
+    padding: 25px;
+  }
+
+  .signup-card h1 {
+    font-size: 20px;
+  }
+}

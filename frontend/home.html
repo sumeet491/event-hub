@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EventHub | Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/frontend/css/home.css">
+</head>
+<body>
+
+
+ <!-- NAVBAR -->
+<header class="navbar">
+  <!-- Left: Logo -->
+  <div class="nav-logo">
+    <span class="logo-event">Event</span><span class="logo-hub">Hub</span>
+  </div>
+
+  <!-- Center: Nav Links -->
+  <nav class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Events</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- Right: Profile -->
+  <div class="nav-profile">
+    <img src="https://i.pravatar.cc/40" alt="Profile">
+  </div>
+</header>
+
+
+    <!-- Desktop Nav -->
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#">Events</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <div class="profile-icon desktop-profile">👤</div>
+    </nav>
+  </header>
+
+  <!-- Hero Carousel -->
+  <section class="hero">
+    <div class="hero-slide active" 
+    style="background-image:url('https://cdn.pixabay.com/photo/2018/01/15/21/50/concert-3084876_1280.jpg');">
+    </div>
+    <div class="hero-slide" 
+    style="background-image:url('https://cdn.pixabay.com/photo/2020/07/01/23/23/music-5361245_1280.jpg');">
+    </div>
+    <div class="hero-slide" 
+    style="background-image:url('https://cdn.pixabay.com/photo/2016/11/18/15/44/audience-1835431_1280.jpg')">
+</div>
+
+    <div class="hero-overlay">
+      <p class="badge">
+        <span class="live">Live.</span> Events Near You
+      </p>
+
+      <h1>
+        Discover & Book <br>
+        Premium Events
+      </h1>
+
+      <p class="subtitle">
+        Concerts, Tech Meetups, Workshops & More
+      </p>
+
+      <div class="search">
+        <input type="text" placeholder="Enter city name (Delhi, Mumbai)">
+        <button>Search</button>
+      </div>
+    </div>
+  </section>
+<!-- EVENTS SECTION -->
+<section class="events-section">
+  <h2 class="events-title">Popular Events Near You</h2>
+<div class="events-grid" id="eventsGrid">
+  <!-- Cards will be injected by JS -->
+</div>
+</section>
+<!-- MOMENTS SECTION -->
+<section class="moments-section">
+  <h2 class="moments-title">Loved by millions. Lived on EventHub</h2>
+  <p class="moments-subtitle">Real moments shared by our community</p>
+
+  <div class="moments-wrapper" id="momentsCarousel">
+
+    <!-- CARD -->
+    <div class="moment-card">
+      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2">
+      <div class="moment-overlay">
+        <strong>Ananya</strong>
+        <span>2 days ago</span>
+      </div>
+    </div>
+
+    <div class="moment-card">
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e">
+      <div class="moment-overlay">
+        <strong>Vikram</strong>
+        <span>1 day ago</span>
+      </div>
+    </div>
+
+    <div class="moment-card">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+      <div class="moment-overlay">
+        <strong>Pooja</strong>
+        <span>4 days ago</span>
+      </div>
+    </div>
+
+    <div class="moment-card">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d">
+      <div class="moment-overlay">
+        <strong>Aman</strong>
+        <span>2 days ago</span>
+      </div>
+    </div>
+
+    <div class="moment-card">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330">
+      <div class="moment-overlay">
+        <strong>Neha</strong>
+        <span>5 days ago</span>
+      </div>
+    </div>
+
+    <div class="moment-card">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91">
+      <div class="moment-overlay">
+        <strong>Rahul</strong>
+        <span>1 day ago</span>
+      </div>
+    </div>
+
+    <div class="moment-card">
+      <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce">
+      <div class="moment-overlay">
+        <strong>Simran</strong>
+        <span>3 days ago</span>
+      </div>
+    </div>
+
+    <div class="moment-card">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+      <div class="moment-overlay">
+        <strong>Karan</strong>
+        <span>2 days ago</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 EventHub. All rights reserved.
+  </footer>
+
+  <script src="/frontend/js/home.js"></script>
+</body>
+</html>

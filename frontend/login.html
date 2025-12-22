@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventHub | Login</title>
+
+  <link rel="stylesheet" href="/frontend/css/login.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Background -->
+  <div class="bg"></div>
+
+  <!-- Logo -->
+  <div class="logo">Event<span>Hub</span></div>
+
+  <!-- Center Wrapper -->
+  <div class="wrapper">
+    <div class="login-card">
+
+      <h1>Event Management System</h1>
+      <p class="subtitle">Login to continue</p>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter your password">
+      </div>
+
+      <button onclick="login()">Login</button>
+
+      <p class="signup-text">
+        Don't have an account?
+        <a href="/frontend/signup.html">Sign up</a>
+      </p>
+
+    </div>
+  </div>
+
+  <script src="js/login.js"></script>
+</body>
+</html>
