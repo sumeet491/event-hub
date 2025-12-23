@@ -1,9 +1,16 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://127.0.0.1:27017/eventhub")
+const MONGO_URI = process.env.MONGO_URI;
+
+if (!MONGO_URI) {
+  console.error("❌ MONGO_URI not found");
+  process.exit(1);
+}
+
+mongoose.connect(MONGO_URI)
   .then(() => {
     console.log("MongoDB connected");
   })
   .catch((err) => {
-    console.log("MongoDB connection error:", err);
+    console.error("MongoDB connection error:", err.message);
   });
