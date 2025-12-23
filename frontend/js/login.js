@@ -1,3 +1,4 @@
+const API_BASE = "https://event-hub-mpyk.onrender.com";
 async function login() {
   const identifier = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
@@ -9,7 +10,7 @@ async function login() {
   }
 
   try {
-    const response = await fetch("/login", {
+    const response = await fetch(`${API_BASE}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

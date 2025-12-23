@@ -1,3 +1,5 @@
+const API_BASE = "https://event-hub-mpyk.onrender.com";
+
 // Profile image preview
 const profileInput = document.getElementById("profilePic");
 const previewImg = document.getElementById("preview");
@@ -36,7 +38,7 @@ async function signup() {
   };
 
   try {
-    const response = await fetch("/signup", {
+    const response = await fetch(`${API_BASE}/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
