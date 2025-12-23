@@ -7,7 +7,7 @@
 
 body {
   min-height: 100vh;
-  background: url("/assets/back.jpg") center/cover no-repeat;
+  background: url("https://cdn.pixabay.com/photo/2016/11/18/15/44/audience-1835431_1280.jpg") center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +48,7 @@ body::before {
   border-radius: 16px;
   background:
     linear-gradient(rgba(20,20,20,0.75), rgba(20,20,20,0.75)),
-    url("/assets/back.jpg") center/cover no-repeat;
+    url("https://cdn.pixabay.com/photo/2016/11/18/15/44/audience-1835431_1280.jpg") center/cover no-repeat;
   box-shadow: 0 20px 60px rgba(0,0,0,0.6);
   color: #fff;
 }

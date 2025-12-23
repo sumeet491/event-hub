@@ -1,13 +1,17 @@
 // Profile image preview
-document.getElementById("profilePic").addEventListener("change", function () {
-  const file = this.files[0];
-  if (file) {
-    document.getElementById("preview").src = URL.createObjectURL(file);
-  }
-});
+const profileInput = document.getElementById("profilePic");
+const previewImg = document.getElementById("preview");
+
+if (profileInput) {
+  profileInput.addEventListener("change", function () {
+    const file = this.files[0];
+    if (file) {
+      previewImg.src = URL.createObjectURL(file);
+    }
+  });
+}
 
 async function signup() {
-
   const name = document.getElementById("name").value.trim();
   const username = document.getElementById("username").value.trim();
   const email = document.getElementById("email").value.trim();
@@ -15,6 +19,7 @@ async function signup() {
   const collegeUid = document.getElementById("collegeUid").value.trim();
   const department = document.getElementById("department").value;
 
+  // basic validation
   if (!name || !username || !email || !password || !collegeUid || !department) {
     alert("All fields are required");
     return;
@@ -27,24 +32,29 @@ async function signup() {
     password,
     collegeUid,
     department,
-    profilePic: ""
+    profilePic: "" // future use
   };
 
   try {
-    const res = await fetch("http://localhost:3000/signup", {
+    const response = await fetch("/signup", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(data)
     });
 
-    const result = await res.json();
-    alert(result.message);
+    const result = await response.json();
 
-    if (result.success) {
-      window.location.href = "login.html";
+    if (response.ok && result.success) {
+      alert("Signup successful");
+      window.location.href = "index.html"; // login page
+    } else {
+      alert(result.message || "Signup failed");
     }
 
   } catch (error) {
-    alert("Server error");
+    console.error(error);
+    alert("Unable to connect to server");
   }
 }
