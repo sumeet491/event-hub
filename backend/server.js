@@ -1,18 +1,30 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 require("./db"); // MongoDB connect
 const User = require("./models/User");
 
 const app = express();
 
-/* Middleware to read JSON body */
+/* =====================
+   MIDDLEWARES
+===================== */
 app.use(express.json());
 app.use(cors());
 
-/* Test route */
+/* =====================
+   SERVE FRONTEND FILES
+===================== */
+app.use(express.static(path.join(__dirname, "../frontend")));
+
+/* =====================
+   ROOT → LOGIN PAGE
+===================== */
 app.get("/", (req, res) => {
-  res.status(200).send("Backend + MongoDB running");
+  res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
 
 /* =====================
@@ -30,7 +42,6 @@ app.post("/signup", async (req, res) => {
       profilePic
     } = req.body;
 
-    // check required fields
     if (!name || !username || !email || !password || !collegeUid || !department) {
       return res.status(400).json({
         success: false,
@@ -38,7 +49,6 @@ app.post("/signup", async (req, res) => {
       });
     }
 
-    // duplicate email or username check
     const existingUser = await User.findOne({
       $or: [{ email }, { username }]
     });
@@ -50,7 +60,6 @@ app.post("/signup", async (req, res) => {
       });
     }
 
-    // create new user
     await User.create({
       name,
       username,
@@ -61,18 +70,19 @@ app.post("/signup", async (req, res) => {
       profilePic
     });
 
-    res.status(201).json({
+    res.json({
       success: true,
       message: "Signup successful"
     });
 
-  } catch (error) {
+  } catch (err) {
     res.status(500).json({
       success: false,
       message: "Server error"
     });
   }
 });
+
 /* =====================
    LOGIN API
 ===================== */
@@ -87,12 +97,8 @@ app.post("/login", async (req, res) => {
       });
     }
 
-    // email OR username se find karo
     const user = await User.findOne({
-      $or: [
-        { email: identifier },
-        { username: identifier }
-      ]
+      $or: [{ email: identifier }, { username: identifier }]
     });
 
     if (!user) {
@@ -121,7 +127,7 @@ app.post("/login", async (req, res) => {
       }
     });
 
-  } catch (error) {
+  } catch (err) {
     res.status(500).json({
       success: false,
       message: "Server error"
@@ -129,7 +135,11 @@ app.post("/login", async (req, res) => {
   }
 });
 
-/* Server start */
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+/* =====================
+   SERVER START
+===================== */
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log("Server running on port", PORT);
 });
